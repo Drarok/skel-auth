@@ -1,0 +1,33 @@
+{
+    "name": "drarok/skel-auth",
+    "description": "Simple authentication library",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mat Gadd",
+            "email": "source@catchall.drarok.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "SkelAuth\\": "src/SkelAuth"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "SkelAuthTests\\": "tests/"
+        }
+    },
+    "require": {
+        "php": ">= 7.0"
+    },
+    "require-dev": {
+        "php-coveralls/php-coveralls": "^1.0",
+        "phpunit/phpunit": "^6.3",
+        "silex/silex": "^2.2",
+        "squizlabs/php_codesniffer": "^3.0",
+        "twig/twig": "^2.0",
+        "symfony/twig-bridge": "^3.3"
+    }
+}

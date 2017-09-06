@@ -1,0 +1,23 @@
+{% extends 'layouts/default.html.twig' %}
+
+{% block content %}
+    {% if loginFailed %}
+        <div class="alert alert-danger">
+            Invalid username or password.
+        </div>
+    {% endif %}
+
+    <form class="form" method="POST">
+        <div class="form-group">
+            <label for="identifier">{{ identifierName }}</label>
+            <input id="identifier" class="form-control" name="identifier">
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input id="password" type="password" class="form-control" name="password">
+        </div>
+
+        <button type="submit" class="btn btn-primary pull-right">Log In</button>
+    </form>
+{% endblock %}
