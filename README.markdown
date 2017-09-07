@@ -46,9 +46,9 @@ class AuthService extends AbstractAuthService
 }
 ```
 
-And finally, register your `AuthService` with the application:
+Next, register your `AuthService` with the application:
 
-```
+```php
 <?php
 
 use YourApp\Service\AuthService;
@@ -58,4 +58,27 @@ use YourApp\Service\AuthService;
 $app[AuthService::AUTH_SERVICE_KEY] = function ($app) {
     return new AuthService($app['session']);
 };
+```
+
+Ensure that you either create an `auth/login.html.twig` in your templates directory, or add the path to this module's templates to your Twig configuration.
+
+```php
+$app->register(new TwigServiceProvider(), [
+    'twig.path' => [
+        APP_ROOT . '/templates',
+        APP_ROOT . '/vendor/drarok/skel-auth/templates',
+    ],
+]);
+```
+
+And finally, set up your routes!
+
+```php
+$app->match('/login', AuthController::class . '::loginAction')
+    ->method('GET|POST')
+    ->bind('login');
+
+$app->match('/logout', AuthController::class . '::logoutAction')
+    ->method('POST')
+    ->bind('logout');
 ```
